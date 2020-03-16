@@ -1,7 +1,5 @@
 import { ApolloClient } from "apollo-client";
-import React from "react";
 import dotenv from "dotenv";
-import uri from "./uri";
 import resolvers from "./resolvers";
 import cache from "./cache";
 import { toast } from "react-toastify";

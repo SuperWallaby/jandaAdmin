@@ -3,9 +3,12 @@ import { JDbutton } from "@janda-com/front";
 import "@janda-com/front/build/scss/all.scss";
 import "./MainAdmin.scss";
 
-interface Iprops {}
+// interface Iprops {
+//   houses:,
+//   tickes:
+// }
 
-const MainAdmin: React.SFC<Iprops> = ({}) => {
+const MainAdmin: React.FC<any> = ({}) => {
   return (
     <div className="superMain">
       <div className="container container--full">

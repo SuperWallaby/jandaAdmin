@@ -1,10 +1,13 @@
 import { ApolloClient } from "apollo-client";
+import React from "react";
 import dotenv from "dotenv";
+import uri, { TICEKT_URI } from "./uri";
 import resolvers from "./resolvers";
 import cache from "./cache";
 import { toast } from "react-toastify";
 import { Observable, ApolloLink } from "apollo-link";
 import { onError, ErrorResponse } from "apollo-link-error";
+import { createUploadLink } from "apollo-upload-client";
 
 const request = async (operation: any) => {
   operation.setContext({
@@ -47,9 +50,9 @@ const hanldeError = ({ graphQLErrors, networkError }: ErrorResponse) => {
         `[GraphQL error]: Message: ${message}, Location: ${locations}, Path: ${path}`
       );
     });
-    toast.warn("Fail");
+    toast.warn("err");
   } else if (networkError) {
-    toast.warn("server_dose_not_respond");
+    toast.warn("서버가 응답하지 않습니다.");
   }
 };
 
@@ -73,7 +76,28 @@ cache.writeData({
 
 const client = new ApolloClient({
   resolvers,
-  link: ApolloLink.from([onError(hanldeError), requestLink]),
+  link: ApolloLink.from([
+    onError(hanldeError),
+    requestLink,
+    createUploadLink({
+      uri,
+      credentials: "omit"
+    })
+  ]),
+  cache
+});
+
+export const tclient = new ApolloClient({
+  resolvers,
+  link: ApolloLink.from([
+    onError(hanldeError),
+    requestLink,
+    createUploadLink({
+      // @ts-ignore
+      TICEKT_URI,
+      credentials: "omit"
+    })
+  ]),
   cache
 });
 

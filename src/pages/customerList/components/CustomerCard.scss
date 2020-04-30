@@ -1,0 +1,46 @@
+@import "../../../variables.scss";
+
+#root {
+	.customerCard {
+		padding: space(2);
+		border-radius: $standard-border-radius;
+		background-color: white;
+		margin-bottom: space(2);
+
+		&__img {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			border-radius: 50%;
+			padding: space(2);
+			background-color: $grey-level1;
+			width: 40px;
+			height: 40px;
+		}
+
+		&__manageBtn {
+			&:hover {
+				cursor: pointer;
+				color: $primary-color-light;
+			}
+			color: $grey-level3;
+			border-radius: 50%;
+			border: 2px solid;
+			padding: space(.4);
+			width: max-content;
+			height: max-content;
+		}
+
+		&__manageBtnIn {
+			height: 28px;
+			width: 28px;
+			padding: space(2.5);
+			font-size: $typho-small;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			border-radius: 50%;
+			border: 2px solid;
+		}
+	}
+}

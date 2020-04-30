@@ -1,0 +1,15 @@
+@import "../variables.scss";
+
+#root {
+	.TabList {
+		.react-tabs__tab-list {
+			display: flex;
+			justify-content: center;
+			.react-tabs__tab {
+				color: $grey-level2;
+				margin: 0;
+				padding: 0px space(4);
+			}
+		}
+	}
+}

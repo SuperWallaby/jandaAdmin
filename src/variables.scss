@@ -1,0 +1,11 @@
+@import "../../janda-lib/src/scss/abstracts/variables";
+$badge-br: 10px;
+$badge-padding: 0.3em space(1.5);
+$tabs-tab-selected-color: white;
+$tab-border-bottom: 2px solid $grey-level2;
+$tabs-tab-selected-border-bottom: 2px solid $point-color;
+$tabs-border-bottom: 0px dashed black;
+$splinter-color: $grey-level2;
+$splinter-yzoom: .6;
+
+@import "../../janda-lib/src/scss/all.scss";

@@ -1,11 +1,17 @@
 @import "../../janda-lib/src/scss/abstracts/variables";
 $badge-br: 10px;
+$html-color: white;
+$background-color: $primary-color;
+$point-color-dark: $primary-color-dark;
+$point-color-light: $primary-color-light;
+$primary-color: $point-color;
+$primary-color-light: $point-color-light;
+$primary-color-drak: $point-color-dark;
+$point-color: $background-color;
 $badge-padding: 0.3em space(1.5);
 $tabs-tab-selected-color: white;
 $tab-border-bottom: 2px solid $grey-level2;
-$tabs-tab-selected-border-bottom: 2px solid $point-color;
+$tabs-tab-selected-border-bottom: 2px solid $primary-color;
 $tabs-border-bottom: 0px dashed black;
 $splinter-color: $grey-level2;
 $splinter-yzoom: .6;
-
-@import "../../janda-lib/src/scss/all.scss";

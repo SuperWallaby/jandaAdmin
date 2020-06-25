@@ -1,0 +1,20 @@
+@import "../../../variables.scss";
+
+.homepageCard {
+	&__header {
+		padding-bottom: space(3);
+		margin-bottom: space(3);
+		border-bottom: 1px solid $grey-level1;
+	}
+
+	&__body {
+		margin-bottom: space(2) * -1;
+	}
+
+	&__line {
+		margin-bottom: space(2);
+		.splinter {
+			margin-bottom: space(2);
+		}
+	}
+}

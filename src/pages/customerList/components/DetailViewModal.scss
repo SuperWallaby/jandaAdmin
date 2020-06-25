@@ -1,0 +1,29 @@
+@import "../../../variables.scss";
+$img-size: 3.25rem;
+
+html {
+	.detailViewModal {
+		&__imgWrap {
+			display: flex;
+			justify-content: center;
+		}
+		&__img {
+			position: absolute;
+			border-radius: 50%;
+			padding: 1.25rem;
+			background-color: $grey-level1;
+			display: flex;
+			width: $img-size;
+			top: -(($img-size)/2 + $modal-padding);
+		}
+
+		.react-tabs__tab {
+			margin: 0 !important;
+			padding: 0 space(4);
+			color: #343434;
+			&--selected {
+				color: $primary-color !important;
+			}
+		}
+	}
+}

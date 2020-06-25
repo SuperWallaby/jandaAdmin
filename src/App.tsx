@@ -7,6 +7,8 @@ import Login from './pages/login/Login';
 import './App.scss';
 import { Toast, JDtabs, TabList, Tab, TabPanel, JDlogo, JDcontainer, WindowSize } from '@janda-com/front';
 import './component/MainTab.scss';
+import HomepageRequestWrap from './pages/homepageRequests/HomepageRequestWrap';
+import HomepageWrap from './pages/homepage/HomepageWrap';
 
 function App() {
 	return (
@@ -17,7 +19,7 @@ function App() {
 				</JDcontainer>
 				<Router>
 					<Switch>
-						<Route path="/login" render={() => <Login />} />
+						<Route path="/login" render={props => <Login {...props} />} />
 						<Route
 							path="/"
 							render={prop => (
@@ -27,6 +29,7 @@ function App() {
 											<Tab>고객 리스트</Tab>
 											<Tab>통계 정보</Tab>
 											<Tab>히스토리</Tab>
+											<Tab>홈페이지</Tab>
 											<Tab>홈페이지 신청</Tab>
 										</TabList>
 										<TabPanel>
@@ -34,6 +37,12 @@ function App() {
 										</TabPanel>
 										<TabPanel />
 										<TabPanel />
+										<TabPanel>
+											<HomepageWrap />
+										</TabPanel>
+										<TabPanel>
+											<HomepageRequestWrap />
+										</TabPanel>
 									</JDtabs>
 								</div>
 							)}

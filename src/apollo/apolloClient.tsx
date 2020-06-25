@@ -42,7 +42,7 @@ const requestLink = new ApolloLink(
 
 // networkError : 아래 에러는 그래프큐엘 통신이 실패했거나
 // graphQLErrors : 그래프큐엘 통신규약이 맞지않음
-const hanldeError = ({ graphQLErrors, networkError }: ErrorResponse) => {
+const handleError = ({ graphQLErrors, networkError }: ErrorResponse) => {
 	if (graphQLErrors) {
 		graphQLErrors.map(({ message, locations, path }) => {
 			console.warn(`[GraphQL error]: Message: ${message}, Location: ${locations}, Path: ${path}`);
@@ -74,7 +74,7 @@ cache.writeData({
 const client = new ApolloClient({
 	resolvers,
 	link: ApolloLink.from([
-		onError(hanldeError),
+		onError(handleError),
 		requestLink,
 		createUploadLink({
 			uri,
@@ -87,7 +87,7 @@ const client = new ApolloClient({
 export const tclient = new ApolloClient({
 	resolvers,
 	link: ApolloLink.from([
-		onError(hanldeError),
+		onError(handleError),
 		requestLink,
 		createUploadLink({
 			// @ts-ignore

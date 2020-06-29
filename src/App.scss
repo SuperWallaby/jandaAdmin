@@ -1,5 +1,6 @@
 @import "./variables.scss";
-@import "../../janda-lib/src/scss/all.scss";
+@import "~@janda-com/front/src/scss/all.scss";
+
 
 html {
 	color: white;
@@ -7,6 +8,7 @@ html {
 
 .App {
 	padding-top: space(3);
+
 	&__logo {
 		width: 100px;
 	}

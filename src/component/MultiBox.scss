@@ -1,16 +1,17 @@
-@import "~Styles";
-
 .radioButton {
 	max-width: 100%;
 	margin-bottom: $standard-margin-bottom;
+
 	&__inner {
 		margin: -4px;
 		padding: 4px;
+
 		&--noWrap {
 			white-space: nowrap;
 			@extend %JDscrollbar--slender;
 		}
 	}
+
 	.JDbtn {
 		border-color: $grey-opacity2 !important;
 		margin-bottom: 0;

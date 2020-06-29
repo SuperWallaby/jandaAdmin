@@ -1,14 +1,14 @@
 import {
-  F_IMG,
-  F_PAGE_INFO,
-  F_USER_REQUEST,
-  F_HOMEPAGE_REQUEST,
-  F_HOEMPAGE,
-  F_CONTEXT,
-  F_PRODUCT,
-  F_PRODUCT_TYPE,
-} from "./frame.qr";
-import gql from "graphql-tag";
+	F_IMG,
+	F_PAGE_INFO,
+	F_USER_REQUEST,
+	F_HOMEPAGE_REQUEST,
+	F_HOEMPAGE,
+	F_CONTEXT,
+	F_PRODUCT,
+	F_PRODUCT_TYPE
+} from './frame.qr';
+import gql from 'graphql-tag';
 
 export const GET_HOUSES_FOR_SU = gql`
   query getHousesForSU($param: GetHousesForSUInput!) {
@@ -54,13 +54,13 @@ export const GET_HOUSES_FOR_SU = gql`
 
 // 유저 :: 이메일 로그인
 export const EMAIL_SIGN_IN = gql`
-  query emailSignIn($email: EmailAddress!, $password: String!) {
-    EmailSignIn(email: $email, password: $password) {
-      ok
-      error
-      token
-    }
-  }
+	query emailSignIn($email: EmailAddress!, $password: String!) {
+		EmailSignIn(email: $email, password: $password) {
+			ok
+			error
+			token
+		}
+	}
 `;
 
 export const GET_HOMEPAGES = gql`
@@ -115,96 +115,96 @@ export const GET_USER_REQUESTS = gql`
 `;
 
 export const CREATE_HOME_PAGE = gql`
-  mutation createHomePage($param: CreateHomepageInput!) {
-    CreateHomepage(param: $param) {
-      ok
-      error
-    }
-  }
+	mutation createHomePage($param: CreateHomepageInput!) {
+		CreateHomepage(param: $param) {
+			ok
+			error
+		}
+	}
 `;
 
 export const UPDATE_HOME_PAGE = gql`
-  mutation updateHomePage($param: UpdateHomepageInput!) {
-    UpdateHomepage(param: $param) {
-      ok
-      error
-    }
-  }
+	mutation updateHomePage($param: UpdateHomepageInput!) {
+		UpdateHomepage(param: $param) {
+			ok
+			error
+		}
+	}
 `;
 
 export const UPDATE_USER_REQUEST = gql`
-  mutation updateUserRequest($param: UpdateUserRequestInput!) {
-    UpdateUserRequest(param: $param) {
-      ok
-      error
-    }
-  }
+	mutation updateUserRequest($param: UpdateUserRequestInput!) {
+		UpdateUserRequest(param: $param) {
+			ok
+			error
+		}
+	}
 `;
 
 export const DO_BILL_PAY_PRODUCT = gql`
-  mutation doBillPayProduct($param: DoBillPayProductInput!) {
-    DoBillPayProduct(param: $param) {
-      ok
-      error
-    }
-  }
+	mutation doBillPayProduct($param: DoBillPayProductInput!) {
+		DoBillPayProduct(param: $param) {
+			ok
+			error
+		}
+	}
 `;
 
 export const DO_BILL_PAY_CANCEL_PRODUCT = gql`
-  mutation doBillPayCancelProduct($param: PayCancelProductInput!) {
-    DoBillPayCancelProduct(param: $param) {
-      ok
-      error
-    }
-  }
+	mutation doBillPayCancelProduct($param: PayCancelProductInput!) {
+		DoBillPayCancelProduct(param: $param) {
+			ok
+			error
+		}
+	}
 `;
 
 export const GET_USER_LIST = gql`
-  query getUsers($param: GetUsersInput!) {
-    GetUsers(param: $param) {
-      ok
-      error
-      result {
-        users {
-          _id
-          name
-          userId
-          phoneNumber
-          password
-          cardRates
-          email
-          profileImg {
-            url
-          }
-          isPhoneVerified
-          userRoles
-          checkPrivacyPolicy
-          paymentInfos {
-            authDate
-            billKey
-            cardName
-            cardNo
-            cardCl
-            card
-            cardCode
-            cardNoHashed
-            isLive
-          }
-          houses {
-            name
-          }
-          createdAt
-          updatedAt
-        }
-        pageInfo {
-          currentPage
-          totalPage
-          rowCount
-          totalCount
-        }
-      }
-    }
-  }
+	query getUsers($param: GetUsersInput!) {
+		GetUsers(param: $param) {
+			ok
+			error
+			result {
+				users {
+					_id
+					name
+					userId
+					phoneNumber
+					password
+					cardRates
+					email
+					profileImg {
+						url
+					}
+					isPhoneVerified
+					userRoles
+					checkPrivacyPolicy
+					paymentInfos {
+						authDate
+						billKey
+						cardName
+						cardNo
+						cardCl
+						card
+						cardCode
+						cardNoHashed
+						isLive
+					}
+					houses {
+						name
+					}
+					createdAt
+					updatedAt
+				}
+				pageInfo {
+					currentPage
+					totalPage
+					rowCount
+					totalCount
+				}
+			}
+		}
+	}
 `;
 
 export const GET_USER_FOR_SU = gql`
@@ -219,12 +219,22 @@ export const GET_USER_FOR_SU = gql`
   }
   ${F_CONTEXT}
 `;
-
-export const UPDATE_PRODUCT_FOR_SU = gql`
-  mutation updateProductForSU($param: UpdateProductForSUInput!) {
-    UpdateProductForSU(param: $param) {
-      ok
-      error
+export const GET_SUPER_PROFILE = gql`
+  query getMyProfile {
+    GetMyProfile {
+      user {
+        ...Fcontext
+      }
     }
   }
+  ${F_CONTEXT}
+`;
+
+export const UPDATE_PRODUCT_FOR_SU = gql`
+	mutation updateProductForSU($param: UpdateProductForSUInput!) {
+		UpdateProductForSU(param: $param) {
+			ok
+			error
+		}
+	}
 `;

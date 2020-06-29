@@ -830,6 +830,231 @@ export interface getUserForSUVariables {
 // This file was automatically generated and should not be edited.
 
 // ====================================================
+// GraphQL query operation: getMyProfile
+// ====================================================
+
+export interface getMyProfile_GetMyProfile_user_profileImg_tags {
+  __typename: "JdTag";
+  Key: string;
+  Value: string;
+}
+
+export interface getMyProfile_GetMyProfile_user_profileImg {
+  __typename: "JdFile";
+  url: any;
+  filename: string;
+  mimeType: string;
+  tags: getMyProfile_GetMyProfile_user_profileImg_tags[] | null;
+}
+
+export interface getMyProfile_GetMyProfile_user_bankAccountInfo {
+  __typename: "BankAccountInfo";
+  bankName: string;
+  accountNum: string;
+  accountHolder: string;
+}
+
+export interface getMyProfile_GetMyProfile_user_houses_smsInfo {
+  __typename: "SmsInfo";
+  _id: string;
+}
+
+export interface getMyProfile_GetMyProfile_user_houses_roomTypes {
+  __typename: "RoomType";
+  _id: string;
+  roomCount: number;
+}
+
+export interface getMyProfile_GetMyProfile_user_houses_product_status {
+  __typename: "ProductStatus";
+  /**
+   * 계속 이용 여부 => false면 더이상 결제 안하고 expireDate 연장 안함
+   */
+  isContinue: boolean;
+  /**
+   * isContinue === false 인경우 생성됨
+   */
+  discontinueDate: any | null;
+}
+
+export interface getMyProfile_GetMyProfile_user_houses_product_productType {
+  __typename: "ProductType";
+  _id: string;
+  /**
+   * 제품 이름
+   */
+  name: string;
+  /**
+   * 제품 가격(월)
+   */
+  price: number;
+  /**
+   * 만들 수 있는 최대 방 / 배드 수 => -1 일때 무제한
+   */
+  roomCount: number;
+  /**
+   * ProductTypeKey
+   */
+  key: ProductTypeKey;
+  /**
+   * 방 수 추가시 추가 가격  => default: 0
+   */
+  roomCountExtraCharge: number;
+  /**
+   * 한달간 받을 수 있는 최대 예약 수 => -1 일 떄 무제한
+   */
+  bookingCount: number;
+  /**
+   * 예약 초과시 부과되는 금액 => defualt: 0
+   */
+  bookingCountExtraCharge: number;
+  /**
+   * 상세 설명
+   */
+  description: string | null;
+  canHaveHostApp: boolean;
+  createdAt: any;
+  updatedAt: any | null;
+}
+
+export interface getMyProfile_GetMyProfile_user_houses_product {
+  __typename: "Product";
+  _id: string;
+  /**
+   * 제품 이름
+   */
+  name: string;
+  /**
+   * 제품 가격(월)
+   */
+  price: number | null;
+  /**
+   * 상품 만료일까지 남은 일 수
+   */
+  daysLeftToExpire: number;
+  /**
+   * 정기결제 키값
+   */
+  billKey: string | null;
+  /**
+   * 상품 정기결제 상태
+   */
+  status: getMyProfile_GetMyProfile_user_houses_product_status;
+  /**
+   * 할인된 가격
+   */
+  discountedPrice: number | null;
+  /**
+   * 만들 수 있는 최대 방 / 배드 수 => -1 일때 무제한
+   */
+  roomCount: number | null;
+  /**
+   * 방 수 추가시 추가 가격  => default: 0
+   */
+  roomCountExtraCharge: number | null;
+  /**
+   * 한달간 받을 수 있는 최대 예약 수 => -1 일 떄 무제한
+   */
+  bookingCount: number | null;
+  /**
+   * 예약 초과시 부과되는 금액 => defualt: 0
+   */
+  bookingCountExtraCharge: number | null;
+  /**
+   * 상품 만료 예정일
+   */
+  expireDate: any;
+  /**
+   * 상품이 만료된 여부
+   */
+  isExpired: boolean;
+  /**
+   * 상세 설명
+   */
+  description: string | null;
+  createdAt: any;
+  updatedAt: any | null;
+  /**
+   * 상품 만료까지 남은 일수
+   */
+  productType: getMyProfile_GetMyProfile_user_houses_product_productType;
+}
+
+export interface getMyProfile_GetMyProfile_user_houses_location {
+  __typename: "Location";
+  address: string;
+  addressDetail: string | null;
+  lat: number;
+  lng: number;
+}
+
+export interface getMyProfile_GetMyProfile_user_houses {
+  __typename: "House";
+  _id: string;
+  name: string;
+  houseType: HouseType;
+  status: HouseStatus | null;
+  publicKey: string | null;
+  createdAt: any;
+  updatedAt: any | null;
+  smsInfo: getMyProfile_GetMyProfile_user_houses_smsInfo;
+  roomTypes: getMyProfile_GetMyProfile_user_houses_roomTypes[] | null;
+  product: getMyProfile_GetMyProfile_user_houses_product | null;
+  location: getMyProfile_GetMyProfile_user_houses_location;
+}
+
+export interface getMyProfile_GetMyProfile_user_paymentInfos {
+  __typename: "PaymentInfo";
+  authDate: any;
+  billKey: string;
+  cardName: string;
+  cardNo: string;
+  cardCl: number;
+  card: Card | null;
+  cardCode: number;
+  cardNoHashed: string | null;
+  isLive: boolean;
+}
+
+export interface getMyProfile_GetMyProfile_user {
+  __typename: "User";
+  _id: string;
+  name: any;
+  phoneNumber: any;
+  password: any | null;
+  /**
+   * 주요 관리 수단임.. 잘 관리하도록 ㅎ
+   */
+  email: any;
+  profileImg: getMyProfile_GetMyProfile_user_profileImg | null;
+  bankAccountInfo: getMyProfile_GetMyProfile_user_bankAccountInfo | null;
+  isPhoneVerified: boolean;
+  checkPrivacyPolicy: boolean;
+  userRole: UserRole;
+  createdAt: any;
+  updatedAt: any | null;
+  houses: getMyProfile_GetMyProfile_user_houses[];
+  paymentInfos: getMyProfile_GetMyProfile_user_paymentInfos[];
+}
+
+export interface getMyProfile_GetMyProfile {
+  __typename: "GetMyProfileResponse";
+  user: getMyProfile_GetMyProfile_user | null;
+}
+
+export interface getMyProfile {
+  /**
+   * 로그인 token 필요!
+   */
+  GetMyProfile: getMyProfile_GetMyProfile;
+}
+
+/* tslint:disable */
+/* eslint-disable */
+// @generated
+// This file was automatically generated and should not be edited.
+
+// ====================================================
 // GraphQL mutation operation: updateProductForSU
 // ====================================================
 
